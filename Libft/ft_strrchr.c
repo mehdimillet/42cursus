@@ -12,21 +12,19 @@
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	unsigned int	i;
-	char			a;
+	int		i;
+	char	a;
 
 	a = (char )c;
-	i = 0;
-	while (s[i])
+	i = ft_strlen(s);
+	while (i >= 0)
 	{
 		if (s[i] == a)
-			return ((char *)&s[i]);
-		i++;
+			return ((char *)(s + i));
+		i--;
 	}
-	if (s[1] == a)//on check si c'est egal a '\0'
-		return ((char *)&s[i]);
 	return (NULL);
 }
 
