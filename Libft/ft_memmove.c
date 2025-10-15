@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: memillet <memillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/14 01:05:13 by memillet          #+#    #+#             */
-/*   Updated: 2025/10/15 14:57:07 by memillet         ###   ########.fr       */
+/*   Created: 2025/10/15 10:24:44 by memillet          #+#    #+#             */
+/*   Updated: 2025/10/15 11:24:26 by memillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int c)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	if ((c >= '0' && c <= '9') || (c >= 'a' && c <= 'z')
-		|| (c >= 'A' && c <= 'Z'))
-		return (1);
-	else
-		return (0);
-}
+	char	*temp;
+	char	*d;
 
-// int	main(void)
-// {
-// 	int val;
-// 	val = ft_isalnum(2);
-// 	printf("%d\n", val);
-// 	return(0);
-// }
+	temp = (char *)src;
+	d = (char *)dest;
+	if (temp == (void *)0 && d == (void *)0)
+		return (dest);
+	if (temp < d)
+	{
+		while (n--)
+			d[n] = temp[n];
+	}
+	else
+		ft_memcpy(d, temp, n);
+	return (dest);
+}
