@@ -1,5 +1,4 @@
 #include "libft.h"
-#include <stdio.h>
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
@@ -24,10 +23,10 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	return (0);
 }
 
-int    main(void)
-{
-	char    str[] = "pasaimer";
-	char    to_find[] = "aimer";
-	printf("%s", ft_strnstr(str, to_find, 8));
-	return (0);
-}
+// int	main(void)
+// {
+// 	char	str[] = "youpi";
+// 	char	to_find[] = "upi";
+// 	printf("%s", ft_strnstr(str, to_find, 8));
+// 	return (0);
+// }
