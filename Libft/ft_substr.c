@@ -1,40 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: memillet <memillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/15 14:33:27 by memillet          #+#    #+#             */
-/*   Updated: 2025/10/17 21:47:07 by memillet         ###   ########.fr       */
+/*   Created: 2025/10/16 17:12:16 by memillet          #+#    #+#             */
+/*   Updated: 2025/10/17 21:50:05 by memillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
+	char	*dest;
 	size_t	i;
-	size_t	j;
-	size_t	res_d;
-	size_t	res_s;
 
-	i = ft_strlen(dst);
-	j = 0;
-	res_d = ft_strlen(dst);
-	res_s = ft_strlen(src);
-	if (size < 1)
-		return (res_s + size);
-	while (src[j] && i < size - 1)
+	i = 0;
+	if (start >= (unsigned int)ft_strlen(s))
+		return (ft_strdup(""));
+	if (len > (unsigned int)ft_strlen(s + start))
+		len = ft_strlen(s + start);
+	dest = ft_calloc(len + 1, sizeof(char));
+	if (!dest)
+		return (NULL);
+	while (i < len)
 	{
-		dst[i] = src[j];
+		dest[i] = s[start + i];
 		i++;
-		j++;
 	}
-	dst[i] = '\0';
-	if (size < res_d)
-		return (res_s + size);
-	else
-		return (res_d + res_s);
+	return (dest);
 }
