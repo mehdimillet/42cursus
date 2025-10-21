@@ -1,40 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: memillet <memillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/15 14:33:27 by memillet          #+#    #+#             */
-/*   Updated: 2025/10/21 14:28:28 by memillet         ###   ########.fr       */
+/*   Created: 2025/10/19 00:27:55 by memillet          #+#    #+#             */
+/*   Updated: 2025/10/21 13:24:30 by memillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+int	ft_nbchar(int n)
 {
-	size_t	i;
-	size_t	j;
-	size_t	len_d;
-	size_t	len_s;
+	int	nb;
 
-	i = ft_strlen(dst);
-	j = 0;
-	len_d = ft_strlen(dst);
-	len_s = ft_strlen(src);
-	if (size < 1)
-		return (len_s + size);
-	while (src[j] && i < size - 1)
+	nb = 0;
+
+	if (n <= 0)
+		nb = 1;
+	while (n != 0)
 	{
-		dst[i] = src[j];
-		i++;
-		j++;
+		n = n / 10;
+		nb++;
 	}
-	dst[i] = '\0';
-	if (size < len_d)
-		return (len_s + size);
-	else
-		return (len_d + len_s);
+	return (nb);
 }
+
+char	*ft_itoa(int n)
+{
+	char	*str;
+	long int		size_n;
+	int		i;
+	
+	i = 0;
+	size_n = ft_nbchar(n);
+	
+		if (!(str = malloc ((size_n + 1) * sizeof (char))))
+			return (NULL);
+	if (n < 0)
+	{
+		n *= -1;
+		i++;
+	}
+	while (n > 0)
+	{
+		str[i] = (n % 10) + '0';
+		n = n / 10;
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
+}
+
