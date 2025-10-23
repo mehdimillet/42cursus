@@ -6,7 +6,7 @@
 /*   By: memillet <memillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 16:41:55 by memillet          #+#    #+#             */
-/*   Updated: 2025/10/17 21:49:00 by memillet         ###   ########.fr       */
+/*   Updated: 2025/10/23 05:56:16 by memillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,3 +28,12 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	}
 	return (temp);
 }
+
+// int main(void)
+// {
+// 	size_t n = 5;
+// 	int *a = ft_calloc(n, sizeof *a);
+// 	printf("%d\n", a[0]);
+// 	free(a);
+// 	return 0;
+// }

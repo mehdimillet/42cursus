@@ -6,7 +6,7 @@
 /*   By: memillet <memillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 14:09:56 by memillet          #+#    #+#             */
-/*   Updated: 2025/10/21 14:21:06 by memillet         ###   ########.fr       */
+/*   Updated: 2025/10/23 05:59:36 by memillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,3 +16,9 @@ void	ft_putchar_fd(char c, int fd)
 {
 	write (fd, &c, 1);
 }
+
+// int main(void)
+// {
+// 	ft_putchar_fd('A', 1);
+// 	return (0);
+// }

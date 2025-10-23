@@ -1,40 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: memillet <memillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/21 13:37:21 by memillet          #+#    #+#             */
-/*   Updated: 2025/10/23 06:01:47 by memillet         ###   ########.fr       */
+/*   Created: 2025/10/23 01:14:22 by memillet          #+#    #+#             */
+/*   Updated: 2025/10/23 01:18:50 by memillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+int	ft_lstsize(t_list *lst)
 {
-	unsigned int	i;
+	int	i;
 
 	i = 0;
-	if (!s || !f)
-		return ;
-	while (s[i])
+	if (lst == NULL)
+		return (i);
+	while (lst -> next != NULL)
 	{
-		f(i, &s[i]);
+		lst = lst -> next;
 		i++;
 	}
+	return (i + 1);
 }
-
-// int main(void)
-// {
-// 	char str[] = "Hello, World!";
-// 	void	to_upper(unsigned int i, char *c)
-// 	{
-// 		if (c[i] >= 'a' && c[i] <= 'z')
-// 			c[i] = c[i] - 32;
-// 	}
-// 	ft_striteri(str, to_upper);
-// 	printf("%s\n", str); // Output: "HELLO, WORLD!"
-// 	return (0);
-// }

@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: memillet <memillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/15 18:38:24 by memillet          #+#    #+#             */
-/*   Updated: 2025/10/23 06:03:18 by memillet         ###   ########.fr       */
+/*   Created: 2025/10/23 01:05:58 by memillet          #+#    #+#             */
+/*   Updated: 2025/10/23 01:12:47 by memillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+t_list	*ft_lstlast(t_list *lst)
 {
-	size_t	i;
-
-	i = 0;
-	while (s1[i] && s2[i] && s1[i] == s2[i] && i < n -1)
-		i++;
-	if (n == 0)
-		return (0);
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	if (lst == NULL)
+		return (NULL);
+	while (lst -> next != NULL)
+		lst = lst -> next;
+	return (lst);
 }
-
-// int main(void)
-// {
-// 	printf("%d\n", ft_strncmp("abc", "abd", 3));
-// 	return 0;
-// }

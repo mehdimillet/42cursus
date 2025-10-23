@@ -6,7 +6,7 @@
 /*   By: memillet <memillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 14:33:27 by memillet          #+#    #+#             */
-/*   Updated: 2025/10/21 14:28:28 by memillet         ###   ########.fr       */
+/*   Updated: 2025/10/23 06:01:59 by memillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,3 +38,15 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	else
 		return (len_d + len_s);
 }
+
+// int main(void)
+// {
+// 	char dest[20] = "Hello, ";
+// 	const char *src = "World!";
+// 	size_t size = 15;
+
+// 	size_t result = ft_strlcat(dest, src, size);
+// 	printf("Result: %zu\n", result);
+// 	printf("Destination: %s\n", dest);
+// 	return (0);
+// }

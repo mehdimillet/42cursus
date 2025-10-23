@@ -1,40 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: memillet <memillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/21 13:37:21 by memillet          #+#    #+#             */
-/*   Updated: 2025/10/23 06:01:47 by memillet         ###   ########.fr       */
+/*   Created: 2025/10/23 01:19:10 by memillet          #+#    #+#             */
+/*   Updated: 2025/10/23 01:31:06 by memillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	unsigned int	i;
+	t_list	*last;
 
-	i = 0;
-	if (!s || !f)
+	if (new == NULL)
 		return ;
-	while (s[i])
+	if (*lst == NULL)
 	{
-		f(i, &s[i]);
-		i++;
+		*lst = new;
+		return ;
 	}
+	last = ft_lstlast(*lst);
+	last -> next = new;
 }
-
-// int main(void)
-// {
-// 	char str[] = "Hello, World!";
-// 	void	to_upper(unsigned int i, char *c)
-// 	{
-// 		if (c[i] >= 'a' && c[i] <= 'z')
-// 			c[i] = c[i] - 32;
-// 	}
-// 	ft_striteri(str, to_upper);
-// 	printf("%s\n", str); // Output: "HELLO, WORLD!"
-// 	return (0);
-// }

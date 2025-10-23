@@ -1,40 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: memillet <memillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/21 13:37:21 by memillet          #+#    #+#             */
-/*   Updated: 2025/10/23 06:01:47 by memillet         ###   ########.fr       */
+/*   Created: 2025/10/21 14:51:18 by memillet          #+#    #+#             */
+/*   Updated: 2025/10/23 06:00:12 by memillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+void	ft_putstr_fd(char *s, int fd)
 {
-	unsigned int	i;
+	int	i;
 
 	i = 0;
-	if (!s || !f)
-		return ;
 	while (s[i])
 	{
-		f(i, &s[i]);
+		write (fd, &s[i], 1);
 		i++;
 	}
 }
 
 // int main(void)
 // {
-// 	char str[] = "Hello, World!";
-// 	void	to_upper(unsigned int i, char *c)
-// 	{
-// 		if (c[i] >= 'a' && c[i] <= 'z')
-// 			c[i] = c[i] - 32;
-// 	}
-// 	ft_striteri(str, to_upper);
-// 	printf("%s\n", str); // Output: "HELLO, WORLD!"
+// 	ft_putstr_fd("Hello, World!", 1);
 // 	return (0);
 // }

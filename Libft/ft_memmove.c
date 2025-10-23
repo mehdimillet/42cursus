@@ -6,7 +6,7 @@
 /*   By: memillet <memillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 10:24:44 by memillet          #+#    #+#             */
-/*   Updated: 2025/10/17 17:40:42 by memillet         ###   ########.fr       */
+/*   Updated: 2025/10/23 05:59:24 by memillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,3 +30,14 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		ft_memcpy(dst, source, n);
 	return (dest);
 }
+
+// int main(void)
+// {
+// 	char dest[] = "Hello, World!";
+// 	const char src[] = "42cursus";
+// 	size_t n = 8;
+// 	printf("Before memmove: %s\n", dest);
+// 	ft_memmove(dest, src, n);
+// 	printf("After memmove: %s\n", dest);
+// 	return (0);
+// }

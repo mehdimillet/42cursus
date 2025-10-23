@@ -6,7 +6,7 @@
 /*   By: memillet <memillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 16:42:22 by memillet          #+#    #+#             */
-/*   Updated: 2025/10/17 21:47:47 by memillet         ###   ########.fr       */
+/*   Updated: 2025/10/23 05:57:43 by memillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,3 +33,9 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 		return (0);
 	return (((int)*str1) - ((int)*str2));
 }
+
+// int main(void)
+// {
+//     printf("%d\n", ft_memcmp("abc", "abd", 3));
+//     return 0;
+// }

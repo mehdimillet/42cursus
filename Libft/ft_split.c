@@ -6,7 +6,7 @@
 /*   By: memillet <memillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 03:53:33 by memillet          #+#    #+#             */
-/*   Updated: 2025/10/18 06:10:13 by memillet         ###   ########.fr       */
+/*   Updated: 2025/10/23 06:01:18 by memillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,3 +88,17 @@ char	**ft_split(char const *s, char c)
 	result[i] = NULL;
 	return (result);
 }
+
+// int main(void)
+// {
+// 	char **result = ft_split("Hello World This is 42", ' ');
+// 	int i = 0;
+// 	while (result[i])
+// 	{
+// 		printf("%s\n", result[i]);
+// 		free(result[i]);
+// 		i++;
+// 	}
+// 	free(result);
+// 	return 0;
+// }

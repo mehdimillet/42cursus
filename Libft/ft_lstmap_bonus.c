@@ -1,40 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: memillet <memillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/21 13:37:21 by memillet          #+#    #+#             */
-/*   Updated: 2025/10/23 06:01:47 by memillet         ###   ########.fr       */
+/*   Created: 2025/10/23 05:25:08 by memillet          #+#    #+#             */
+/*   Updated: 2025/10/23 05:45:58 by memillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	unsigned int	i;
+	t_list	*new_list;
+	t_list	*new_node;
+	void	*new_content;
 
-	i = 0;
-	if (!s || !f)
-		return ;
-	while (s[i])
+	new_list = NULL;
+	if (!lst || !f || !del)
+		return (NULL);
+	while (lst)
 	{
-		f(i, &s[i]);
-		i++;
+		new_content = f(lst ->content);
+		new_node = ft_lstnew(new_content);
+		if (!new_node)
+		{
+			ft_lstclear(&new_list, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&new_list, new_node);
+		lst = lst -> next;
 	}
+	return (new_list);
 }
-
-// int main(void)
-// {
-// 	char str[] = "Hello, World!";
-// 	void	to_upper(unsigned int i, char *c)
-// 	{
-// 		if (c[i] >= 'a' && c[i] <= 'z')
-// 			c[i] = c[i] - 32;
-// 	}
-// 	ft_striteri(str, to_upper);
-// 	printf("%s\n", str); // Output: "HELLO, WORLD!"
-// 	return (0);
-// }

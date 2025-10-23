@@ -6,7 +6,7 @@
 /*   By: memillet <memillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 16:42:15 by memillet          #+#    #+#             */
-/*   Updated: 2025/10/16 16:42:18 by memillet         ###   ########.fr       */
+/*   Updated: 2025/10/23 05:57:14 by memillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,3 +27,11 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	return (NULL);
 }
+
+// int main(void)
+// {
+//     const char *s = "hello";
+//     const void *p = ft_memchr(s, 'e', 5);
+//     putchar(*(const unsigned char *)p);
+//     return 0;
+// }

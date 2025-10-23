@@ -6,7 +6,7 @@
 /*   By: memillet <memillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 17:56:18 by memillet          #+#    #+#             */
-/*   Updated: 2025/10/18 04:15:19 by memillet         ###   ########.fr       */
+/*   Updated: 2025/10/23 06:03:36 by memillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,3 +96,11 @@ char	*ft_strtrim(char const *s1, char const *set)
 	dest[i] = '\0';
 	return (dest);
 }
+
+// int main(void)
+// {
+// 	char *s = ft_strtrim("  Hello, World!  ", " ");
+// 	printf("'%s'\n", s); // Output: 'Hello, World!'
+// 	free(s);
+// 	return 0;
+// }

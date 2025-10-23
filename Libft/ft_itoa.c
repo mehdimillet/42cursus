@@ -6,7 +6,7 @@
 /*   By: memillet <memillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 00:27:55 by memillet          #+#    #+#             */
-/*   Updated: 2025/10/21 13:24:30 by memillet         ###   ########.fr       */
+/*   Updated: 2025/10/23 05:56:07 by memillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	ft_nbchar(int n)
 	int	nb;
 
 	nb = 0;
-
 	if (n <= 0)
 		nb = 1;
 	while (n != 0)
@@ -31,26 +30,35 @@ int	ft_nbchar(int n)
 char	*ft_itoa(int n)
 {
 	char	*str;
-	long int		size_n;
-	int		i;
-	
-	i = 0;
-	size_n = ft_nbchar(n);
-	
-		if (!(str = malloc ((size_n + 1) * sizeof (char))))
-			return (NULL);
-	if (n < 0)
+	long	nb;
+	int		len;
+
+	len = ft_nbchar(n);
+	nb = n;
+	str = malloc ((len + 1) * sizeof (char));
+	if (!str)
+		return (NULL);
+	str[len] = '\0';
+	if (nb == 0)
+		str[0] = '0';
+	if (nb < 0)
 	{
-		n *= -1;
-		i++;
+		nb *= -1;
+		str[0] = '-';
 	}
-	while (n > 0)
+	while (nb > 0)
 	{
-		str[i] = (n % 10) + '0';
-		n = n / 10;
-		i++;
+		len--;
+		str[len] = (nb % 10) + '0';
+		nb = nb / 10;
 	}
-	str[i] = '\0';
 	return (str);
 }
 
+// int main(void)
+// {
+//     char *s = ft_itoa(-42);
+//     puts(s);
+//     free(s);
+//     return 0;
+// }

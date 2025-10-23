@@ -6,7 +6,7 @@
 /*   By: memillet <memillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 17:12:16 by memillet          #+#    #+#             */
-/*   Updated: 2025/10/17 21:50:05 by memillet         ###   ########.fr       */
+/*   Updated: 2025/10/23 06:03:44 by memillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,3 +32,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	return (dest);
 }
+
+// int main(void)
+// {
+// 	char *s = ft_substr("Hello, World!", 7, 5);
+// 	printf("'%s'\n", s); // Output: 'World'
+// 	free(s);
+// 	return 0;
+// }
