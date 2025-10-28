@@ -6,27 +6,68 @@
 /*   By: memillet <memillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 18:49:28 by memillet          #+#    #+#             */
-/*   Updated: 2025/10/25 21:04:01 by memillet         ###   ########.fr       */
+/*   Updated: 2025/10/28 16:50:46 by memillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *, ...)
+int	ft_checkpourcent(char format, va_list args)
 {
-	// return (nombre de caractere ecrit)
+	int	count;
+
+	count = 0;
+	if (format == 'c')
+		ft_putchar(va_arg(args, int));
+	if (format == 's')
+		ft_putstr(va_arg(args, char *));
+	if (format == 'p')
+		ft_printmemory(va_arg(args, void *));
+	if (format == 'd')
+		ft_putnbr(va_arg(args, int));
+	if (format == 'i')
+		ft_putnbr(va_arg(args, int));
+	if (format == 'u')
+		ft_unsigned_putnbr(va_arg(args, unsigned int));
+	if (format == 'x')
+		ft_puthex(va_arg(args, unsigned int), 'x');
+	if (format == 'X')
+		ft_puthex(va_arg(args, unsigned int), 'X');
+	if (format == '%')
+		return(count = 1,ft_putchar('%'), count);
+	return (0);
 }
 
-// faire une fonction qui trouve le pourcent : si oui -> regarder quelle pourcent et faire en consequence 
-// 											si non -> ecrire le message entre ""
-// faire une fonction qui divise les parties : celle entre parenthese / celle apres (les arguments)
-// faire une fonction pour chaque pourcent
+int	ft_printf(const char *format, ...)
+{
+	va_list	args;
+	int		i;
+	int		count;
 
-// Lire chaque caractere de la chaine de __attribute_format_arg__si c'est juste un caractere -> write
-// si c'est un % lire le caractere suivant
-// selon le caractere appeler la bonne fonction d'affichage
-// utiliser va_arg()pour recuperer la valeur correspondante.
-// compter combien de caractere ont ete ecrit et les return dans printf
+	count = 0;
+	va_start(args, format);
+	i = 0;
+	if (!format)
+		return (0);
+	while (format[i])
+	{
+		if (format[i] == '%')
+		{
+			count += ft_checkpourcent(format[i + 1], args);
+			i++;
+		}
+		else
+			count += write (1, &format[i], 1);
+		i++;
+	}
+	va_end(args);
+	return (count);
+}
 
-// fonction dans utils:
-// - ft_putchar / ft_putstr / ft_strlen / ft_putnbr / ft_putnbr_unsigned / ft_puthex / ft_itoa
+int main(void)
+{
+	int ret1 = ft_printf("Salut %s, tu as %d ans et ton adresse est %p %%\n", "Mehdi", 19, &ret1);
+	int ret2 = printf("Salut %s, tu as %d ans et ton adresse est %p %%\n", "Mehdi", 19, &ret1);
+
+	printf("ft_printf = %d | printf = %d\n", ret1, ret2);
+}

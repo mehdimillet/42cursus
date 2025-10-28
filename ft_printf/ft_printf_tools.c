@@ -6,55 +6,86 @@
 /*   By: memillet <memillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 21:02:11 by memillet          #+#    #+#             */
-/*   Updated: 2025/10/25 21:09:05 by memillet         ###   ########.fr       */
+/*   Updated: 2025/10/28 16:43:47 by memillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
-void	ft_putchar(char c)
+int	ft_putchar(int c)// pour les caractere (%c)
 {
 	write (1, &c, 1);
+	return (1);
 }
 
-void	ft_putstr(char *str)
+int	ft_putstr(char *str)// pour les string (%s)
 {
 	int	i;
+	int	count;
 
+	count = 0;
 	i = 0;
+	if (!str)
+		return (count = 6, write (1, "(null)", count), count);
 	while (str[i] != '\0')
 	{
-		write (1, &str[i], 1);
+		count += write (1, &str[i], 1);
 		i++;
 	}
+	return (count);
 }
 
-int	ft_strlen(char *str)
+int	ft_putnbr(int nb)// pour les int (%d)
 {
-	int	i;
+	int	count;
 
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
-
-void	ft_putnbr(int nb)
-{
+	count = 0;
 	if (nb == -2147483648)
 	{
-		write(1, "-2147483648", 11);
-		return ;
+		count += write(1, "-2147483648", 11);
+		return (count);
 	}
 	if (nb < 0)
 	{
+		count++;
 		ft_putchar('-');
 		nb = -nb;
 	}
 	if (nb > 9)
 	{
-		ft_putnbr(nb / 10);
+		count += ft_putnbr(nb / 10);
 		nb = nb % 10;
 	}
-	ft_putchar(nb + '0');
+	count+= ft_putchar(nb + '0');
+	return (count);
+}
+
+int	ft_puthex(unsigned int n, char format)//pour l'hexadecimal (%x, %X)
+{
+	char	*base;
+	int		count;
+
+	count = 0;
+	if (format == 'x')
+		base = "0123456789abcdef";
+	else
+		base = "0123456789ABCDEF";
+	if (n >= 16)
+		count = ft_puthex (n / 16, format);
+	count	+= write (1, &base[n % 16], 1);
+	return (count);
+}
+
+int	ft_unsigned_putnbr(unsigned int nb) // pour les unsigned int (%u)
+{
+	int	count;
+
+	count = 0;
+	if (nb > 9)
+	{
+		count += ft_unsigned_putnbr(nb / 10);
+		nb = nb % 10;
+	}
+	count += ft_putchar(nb + '0');
+	return (count);
 }
