@@ -6,7 +6,7 @@
 /*   By: memillet <memillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 18:49:13 by memillet          #+#    #+#             */
-/*   Updated: 2025/10/28 16:40:23 by memillet         ###   ########.fr       */
+/*   Updated: 2025/10/29 11:06:38 by memillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ int	ft_printmemory(void *ptr);
 
 //fonction dans printf
 
-int	ft_checkpourcent(const char format, va_list args);
+int	ft_checkpercent(const char format, va_list args);
 int	ft_printf(const char *format, ...);

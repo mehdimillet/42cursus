@@ -6,7 +6,7 @@
 /*   By: memillet <memillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 10:24:14 by memillet          #+#    #+#             */
-/*   Updated: 2025/10/28 16:47:08 by memillet         ###   ########.fr       */
+/*   Updated: 2025/10/29 11:12:02 by memillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int	ft_putbase(unsigned long ptr)
 {
-	char * base;
-	int	count;
+	char	*base;
+	int		count;
 
 	base = "0123456789abcdef";
 	count = 0;

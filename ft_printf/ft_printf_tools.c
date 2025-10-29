@@ -6,7 +6,7 @@
 /*   By: memillet <memillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 21:02:11 by memillet          #+#    #+#             */
-/*   Updated: 2025/10/28 16:43:47 by memillet         ###   ########.fr       */
+/*   Updated: 2025/10/29 11:11:41 by memillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	ft_putnbr(int nb)// pour les int (%d)
 		count += ft_putnbr(nb / 10);
 		nb = nb % 10;
 	}
-	count+= ft_putchar(nb + '0');
+	count += ft_putchar(nb + '0');
 	return (count);
 }
 
@@ -71,8 +71,8 @@ int	ft_puthex(unsigned int n, char format)//pour l'hexadecimal (%x, %X)
 	else
 		base = "0123456789ABCDEF";
 	if (n >= 16)
-		count = ft_puthex (n / 16, format);
-	count	+= write (1, &base[n % 16], 1);
+		count += ft_puthex (n / 16, format);
+	count += write (1, &base[n % 16], 1);
 	return (count);
 }
 
