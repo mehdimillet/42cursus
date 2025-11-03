@@ -1,16 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gnl_tools2.c                                       :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: memillet <memillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/30 11:45:14 by memillet          #+#    #+#             */
-/*   Updated: 2025/10/30 11:48:16 by memillet         ###   ########.fr       */
+/*   Created: 2025/10/29 15:22:49 by memillet          #+#    #+#             */
+/*   Updated: 2025/10/31 15:43:47 by memillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+int	ft_strlen(const char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	i++;
+	return (i);
+}
+
+char	*ft_strchr(const char *s, int c)//trouver le premioer \n
+{
+	unsigned char	a;
+
+	a = (unsigned char )c;
+	while (*s)
+	{
+		if (*s == a)
+			return ((char *)s);
+		s++;
+	}
+	if (a == '\0')
+		return ((char *)s);
+	return (NULL);
+}
 
 static void	*ft_calloc(size_t nmemb, size_t size)
 {
@@ -21,7 +47,7 @@ static void	*ft_calloc(size_t nmemb, size_t size)
 	temp = malloc(nmemb * size);
 	if (!temp)
 		return (NULL);
-	while (temp[i])
+	while ((size_t)i < nmemb * size)
 	{
 		temp[i] = 0;
 		i++;
@@ -39,7 +65,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	i = 0;
 	j = 0;
 	size = (ft_strlen(s1) + ft_strlen (s2));
-	dest = ft_calloc (sizeof (char), size + 1);
+	dest = ft_calloc (size + 1, sizeof (char));
 	if (!dest)
 		return (NULL);
 	while (*(s1 + i))
@@ -53,5 +79,35 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		j++;
 	}
 	*(dest + i + j) = '\0';
+	free((void *)s1);
+	return (dest);
+}
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*dest;
+	size_t	i;
+
+	i = 0;
+	if (!s)
+		return(NULL);
+	if (start >= (unsigned int)ft_strlen(s))
+	{	
+		dest = malloc(1);
+		if (!dest)
+			return (NULL);
+		dest[0] = '\0';
+		return (dest);
+	}
+	if (len > (unsigned int)ft_strlen(s + start))
+		len = ft_strlen(s + start);
+	dest = ft_calloc(len + 1, sizeof(char));
+	if (!dest)
+		return (NULL);
+	while (i < len)
+	{
+		dest[i] = s[start + i];
+		i++;
+	}
 	return (dest);
 }
