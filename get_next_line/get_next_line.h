@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: memillet <memillet@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/06 04:18:45 by memillet          #+#    #+#             */
+/*   Updated: 2025/11/06 04:19:20 by memillet         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <fcntl.h> //pour open
-#include <stdio.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <fcntl.h> //pour open
+# include <stdio.h>
 
 //buufer
 # ifndef BUFFER_SIZE
