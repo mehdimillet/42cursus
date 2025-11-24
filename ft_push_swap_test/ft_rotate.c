@@ -6,7 +6,7 @@
 /*   By: memillet <memillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 05:09:50 by memillet          #+#    #+#             */
-/*   Updated: 2025/11/19 04:53:10 by memillet         ###   ########.fr       */
+/*   Updated: 2025/11/24 15:25:32 by memillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	ft_rotate_r(t_data *stack)
 	t_stack	*first;
 	t_stack	*last;
 
-	if (stack->a || stack->a->next)
+	if (stack->a && stack->a->next)
 	{
 		first = stack->a;
 		stack->a = stack->a->next;
@@ -61,7 +61,7 @@ void	ft_rotate_r(t_data *stack)
 		last->next = first;
 		first->next = NULL;
 	}
-	if (stack->b || stack->b->next)
+	if (stack->b && stack->b->next)
 	{
 		first = stack->b;
 		stack->b = stack->b->next;
